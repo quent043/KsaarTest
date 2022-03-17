@@ -10,6 +10,7 @@ function closestToZero(input: number[] | undefined): number {
     if (!input || input.length === 0) return 0;
     let result = input[0];
     const negativeNumbers: number[] = [];
+
     for (let item of input) {
         if (item < 0) negativeNumbers.push(item)
         else if (item < result) result = item;
@@ -19,16 +20,16 @@ function closestToZero(input: number[] | undefined): number {
 
     const absoluteValueArray = negativeNumbers.map(Math.abs);
     absoluteValueArray.forEach(value => {
-        if (value < result) result = -value;
+        if (value < Math.abs(result)) result = -value;
     })
     return result;
 }
 
 
-let input = [1, 30, 5, 8, 6, -2, -9]; //1
+let input = [5, 30, 5, -4, -3, -2, -9]; // -2
 let input2 = [4, 30, 5, 8, 6, -2, -9]; // -2
 let input3 = [5, 30, 5, 8, 2, -2, -9]; // 2
-let input4 = [4, 30, 5, 8, 6, 0, -9]; // 0
+let input4 = [4, 30, 5, 8, 1, -5, -9]; // 1
 let input5: number[] = []; //0
 let input6 = undefined; //0
 console.log(closestToZero(input));
