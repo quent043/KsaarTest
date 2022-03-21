@@ -8,7 +8,7 @@
 
 function closestToZero(input) {
     if (!input || input.length === 0) return 0;
-    let result = input[0];
+    let result = Math.max(...input);
     const negativeNumbers = [];
 
     for (let item of input) {
@@ -28,13 +28,17 @@ function closestToZero(input) {
 
 let input = [5, 30, 5, -4, -3, -2, -9]; // -2
 let input2 = [4, 30, 5, 8, 6, -2, -9]; // -2
-let input3 = [5, 30, 5, 8, 2, -2, -9]; // 2
+let input3 = [5, 30, 5, 8, -2, 2, -9]; // 2
 let input4 = [4, 30, 5, 8, 1, -5, -9]; // 1
 let input5 = []; //0
 let input6 = undefined; //0
+let input7 = [-2, -3, 2]; // 2
+let input8 = [2, -2]; // 2
 console.log(closestToZero(input));
 console.log(closestToZero(input2));
 console.log(closestToZero(input3));
 console.log(closestToZero(input4));
 console.log(closestToZero(input5));
 console.log(closestToZero(input6));
+console.log(closestToZero(input7));
+console.log(closestToZero(input8));
